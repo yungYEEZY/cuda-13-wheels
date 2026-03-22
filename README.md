@@ -4,10 +4,14 @@
  - flash-attention v2
  - dlib
 
-## Build wheels 
+## Build wheels
+- Launch blackwell instance with beefy CPU
+- - SA3 only builds on blackwell
+
+ps. Might want to launch hopper instance for fa3.
 
 ```
-vastai search offers 'verified=True rentable=True cpu_cores >=64 cuda_vers >= 13.0 gpu_ram <= 12 num_gpus=1' -b -o dph
+vastai search offers 'verified=True rentable=True cpu_cores >=64 cuda_vers >= 13.0 gpu_name in ["RTX 5080", "RTX 5090"] num_gpus=1' -b -o dph
 export OFFER_ID=
 vastai create instance $OFFER_ID --image vastai/pytorch:cuda-13.0.2-auto --onstart-cmd 'entrypoint.sh' --disk 50 --ssh --direct
 export RUNNING_INSTANCE_ID=
