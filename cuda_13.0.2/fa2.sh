@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Configuration
-BASE_URL="https://raw.githubusercontent.com/yungYEEZY/cuda-13-wheels/main/cuda_13.0.1"
+BASE_URL="https://raw.githubusercontent.com/yungYEEZY/cuda-13-wheels/main/cuda_13.0.2"
 FILE="flash_attn-2.8.4-cp312-cp312-linux_x86_64.whl"
 SHA_FILE="${FILE}.sha256"
 OUT_DIR="/workspace/fa2_cu130"

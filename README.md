@@ -1,4 +1,4 @@
-# CUDA 1.30 wheels
+# CUDA 13.0 wheels
  - SageAttention v2
  - SageAttention v3
  - flash-attention v2
@@ -34,14 +34,14 @@ mv /workspace/SageAttention/sageattention3_blackwell/dist/*.whl /workspace/wheel
 mv /workspace/flash-attention/dist/*.whl /workspace/wheels
 mv /workspace/dlib/dist/*.whl /workspace/wheels
 exit
-scp -r -P ${INSTANCE_PORT} root@${INSTANCE_IP}:/workspace/wheels/ ./cuda_13.0.1
+scp -r -P ${INSTANCE_PORT} root@${INSTANCE_IP}:/workspace/wheels/ ./cuda_13.0.2
 vastai destroy instance $RUNNING_INSTANCE_ID
 ```
 
 ## Split flash_attn-2.8.4-cp312-cp312-linux_x86_64.whl
 
 ```
-cd cuda_13.0.1
+cd cuda_13.0.2
 file="flash_attn-2.8.4-cp312-cp312-linux_x86_64.whl"
 chunk_size=$((90 * 1024 * 1024))
 prefix="$file.part."
@@ -59,7 +59,7 @@ shasum -a 256 "$prefix"* >> "$file.sha256"
 
 ## Rebuild flash_attn-2.8.4-cp312-cp312-linux_x86_64.whl
 ```
-curl -O https://raw.githubusercontent.com/yungYEEZY/cuda-13-wheels/refs/heads/main/cuda_13.0.1/fa2.sh
+curl -O https://raw.githubusercontent.com/yungYEEZY/cuda-13-wheels/refs/heads/main/cuda_13.0.2/fa2.sh
 ./fa2.sh
 pip install flash_attn-2.8.4-cp312-cp312-linux_x86_64.whl
 
